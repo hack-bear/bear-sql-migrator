@@ -64,12 +64,12 @@ generate definition files from db:
 bsqlm -g -i [path]
 ```
 
-generate migration files
+generate migration files:
 ```
 bsqlm -d -i [path] -o [path]
 ```
 
-database migration
+database migration:
 ```
 bsqlm -m [version] -o [path]: migrate database to certain version
 ```
