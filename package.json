@@ -1,0 +1,17 @@
+{
+  "name": "bear-sql-migrator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "hack-bear",
+  "license": "ISC",
+  "bin": {
+    "bsqlm": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {}
+}
