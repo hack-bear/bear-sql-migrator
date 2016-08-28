@@ -10,10 +10,10 @@ program
   .version('1.0.0')
   .option('-m, --migrate [version]', 'Migrate to version [version]')
   .option('-g, --generate', 'Generate the table definitions from db')
-  .option('-d, --diff', 'Diff the table definitions with db')
-  .option('-i, --input [path]', 'Path of table definitions')
-  .option('-o, --output [path]', 'Path of migration files')
-  .option('-f, --fake', 'Fake migration')
+  .option('-d, --diff', 'Diff the table definitions with db and generate migration files')
+  .option('-i, --input [path]', 'Path of table definitions, defaults to ./classes')
+  .option('-o, --output [path]', 'Path of migration files, defaults to ./migrations')
+  .option('-f, --fake', 'Fake migration which only changes the record of migration version but not tables')
   .parse(process.argv)
 
 const inPath = program.input || './classes'
