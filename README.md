@@ -39,12 +39,9 @@ table definitions (eg. Shop.json):
       "notNull": true,
       "settings": ["AUTO_INCREMENT"]
     },
-    {
-      "key": "title",
-      "comment": "商店名称",
-      "type": "varchar(255)",
-      "notNull": true
-    },
+
+    ...
+
     {
       "key": "recommended",
       "comment": "是否推荐",
@@ -62,15 +59,27 @@ table definitions (eg. Shop.json):
 
 ```
 
+generate definition files from db:
+```
+bsqlm -g -i [path]
+```
+
 generate migration files
 ```
-bsqlm -d -i [input folder of database config & table definitions] -o [output folder for migration files]
+bsqlm -d -i [path] -o [path]
 ```
 
 database migration
 ```
-bsqlm -m [version] -o [output folder for migration files]: migrate database to certain version
-bsqlm -m [version] -o [output folder for migration files] -f: fake migration
+bsqlm -m [version] -o [path]: migrate database to certain version
+```
+
+parameters:
+```
+```
+
+table definition:
+```
 ```
 
 ## contributor

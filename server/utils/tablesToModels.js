@@ -10,7 +10,7 @@ function tablesToModels (defs, conn) {
         resolve(res.map(function (obj) {
           return obj['Tables_in_' + defs.config.database]
         }).filter(function (tableName) {
-          return tableName != skipTableName
+          return tableName != skipTableName && tableName.indexOf(defs.tablePrefix) === 0
         }))
       })
     })
