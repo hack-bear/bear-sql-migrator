@@ -1,6 +1,6 @@
 # bear-sql-migrator
 
-Database migration and visualization tool
+Database migration tool
 
 ## intro
 
