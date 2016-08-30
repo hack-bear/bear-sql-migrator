@@ -16,26 +16,34 @@ program
   .option('-f, --fake', 'Fake migration which only changes the record of migration version but not tables')
   .parse(process.argv)
 
-const inPath = program.input || './classes'
-const outPath = program.output || './migrations'
-const _defs = JSON.parse(fs.readFileSync(inPath + '/_defs.json', { encoding: 'utf8' }))
-const conn = mysql.createConnection(_defs.config)
+if (program.diff || program.generate || program.migrate || program.migrate === 0) {
+  const inPath = program.input || './classes'
+  const outPath = program.output || './migrations'
+  const _defs = JSON.parse(fs.readFileSync(inPath + '/_defs.json', { encoding: 'utf8' }))
+  const conn = mysql.createConnection(_defs.config)
 
-if (program.diff) {
-  require('./server/actions/diff')(_defs, conn, inPath, outPath)
-    .then(function () {
-      conn.end()
-    })
-} else if (program.generate) {
-  require('./server/actions/generate')(_defs, conn, inPath)
-    .then(function () {
-      conn.end()
-    })
-}else if (program.migrate || program.migrate === 0) {
-  require('./server/actions/migrate')(_defs, conn, program.migrate, !!program.fake, outPath)
-    .then(function () {
-      conn.end()
-    })
+  conn.connect(function (err) {
+    if (err) {
+      console.warn('cannot connect to db')
+      return
+    }
+    if (program.diff) {
+      require('./server/actions/diff')(_defs, conn, inPath, outPath)
+        .then(function () {
+          conn.end()
+        })
+    } else if (program.generate) {
+      require('./server/actions/generate')(_defs, conn, inPath)
+        .then(function () {
+          conn.end()
+        })
+    } else if (program.migrate || program.migrate === 0) {
+      require('./server/actions/migrate')(_defs, conn, program.migrate, !!program.fake, outPath)
+        .then(function () {
+          conn.end()
+        })
+    }
+  })
 } else {
   console.log('bsqlm -h for help :)')
 }

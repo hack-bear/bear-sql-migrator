@@ -11,7 +11,7 @@ Bear-sql-migrator is a cli tool for sql database migrations
 install with npm
 
 ```
-npm install git@github.com:hack-bear/bear-sql-migrator.git -g
+npm install https://github.com/hack-bear/bear-sql-migrator.git -g
 ```
 
 database config & table definitions should under the same folder which -i provides
