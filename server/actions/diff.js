@@ -11,7 +11,7 @@ function getCurrentMigrate (tablename, conn) {
   return new Promise(function (resolve) {
     let sql = `select ver from ${ tablename } limit 1`
     conn.query(sql, function (err, res) {
-      resolve(res[0] ? res[0].ver : 0)
+      resolve((res && res[0]) ? res[0].ver : 0)
     })
   })
 }
