@@ -3,6 +3,7 @@
 const _fieldToSql = require('./_fieldToSql')
 
 function modelToSql (model, defs, forward) {
+  // TODO: 检查索引建立在存在的列上
   if (forward) {
     let str = 'CREATE TABLE `' + defs.tablePrefix + model.name + '` (\n'
     let arr = []

@@ -71,7 +71,7 @@ bsqlm -d -i [path] -o [path]
 
 database migration:
 ```
-bsqlm -m [version] -o [path]: migrate database to certain version
+bsqlm -m [version] -i [path] -o [path]: migrate database to certain version
 ```
 
 parameters:
