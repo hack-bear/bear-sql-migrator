@@ -99,6 +99,12 @@ settings:
   ["INDEX", "shop_recommend", "shop_id,is_recommend"]: create index named "shop_recommend" on shop_id and is_recommend
 ```
 
+## TODO
+
+数据库填充
+
+ORM
+
 ## contributor
 
 hack-bear@github
